@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Card, Button } from "react-bootstrap";
+import { Card, Button, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { weatherInterpretationRu } from "../../utils/WeatherCode";
 
@@ -18,7 +18,6 @@ const WeatherCard = ({ city }: { city: string }) => {
   useEffect(() => {
     const fetchWeatherData = async () => {
       try {
-        // Запрос для поиска координат города
         const locationResponse = await axios.get(
           `https://geocoding-api.open-meteo.com/v1/search?name=${city}`
         );
@@ -42,7 +41,7 @@ const WeatherCard = ({ city }: { city: string }) => {
     <Card style={{ marginBottom: "20px" }}>
       <Card.Body>
         <Card.Title>{city}</Card.Title>
-        {weatherData && (
+        {weatherData ? (
           <div>
             <p>Температура: {weatherData.temperature} °C</p>
             <p>Погода: {weatherInterpretationRu[weatherData.weathercode]}</p>
@@ -51,6 +50,8 @@ const WeatherCard = ({ city }: { city: string }) => {
               <Button>Подробный прогноз</Button>
             </Link>
           </div>
+        ) : (
+          <Spinner />
         )}
       </Card.Body>
     </Card>

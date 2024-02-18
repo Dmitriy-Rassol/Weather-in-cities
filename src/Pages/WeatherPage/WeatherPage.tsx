@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Container, Row, Col, Table } from "react-bootstrap";
+import { Container, Row, Col, Table, Spinner } from "react-bootstrap";
 import { useParams, Link } from "react-router-dom";
 import { weatherInterpretationRu } from "../../utils/WeatherCode";
 
@@ -74,7 +74,7 @@ const WeatherPage: React.FC = () => {
         <Col>
           <Link to="/">Назад</Link>
           <h1>{city}</h1>
-          {timeData.length > 0 && (
+          {timeData.length > 0 ? (
             <Table striped bordered hover>
               <tbody>
                 <tr>
@@ -103,7 +103,7 @@ const WeatherPage: React.FC = () => {
                 </tr>
               </tbody>
             </Table>
-          )}
+          ) : <Spinner/>}
         </Col>
       </Row>
     </Container>

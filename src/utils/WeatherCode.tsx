@@ -35,3 +35,14 @@ type WeatherInterpretation = {
     96: "Гроза с мелкой градиной",
     99: "Гроза с крупной градиной",
   };
+
+
+
+export const cities = [
+  "Moscow",
+  "St Petersburg",
+  "Rostov-on-Don",
+  "Vladivostok",
+  "Krasnodar",
+  "Yekaterinburg",
+];
