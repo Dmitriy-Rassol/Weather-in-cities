@@ -24,14 +24,13 @@ interface MatchParams {
   [key: string]: string;
 }
 
-
 const WeatherPage: React.FC = () => {
   const { city } = useParams<MatchParams>();
   const [timeData, setTimeData] = useState<string[]>([]);
   const [maxTempData, setMaxTempData] = useState<number[]>([]);
   const [minTempData, setMinTempData] = useState<number[]>([]);
   const [weatherCodeData, setWeatherCodeData] = useState<number[]>([]);
-
+  const [isActive, setIsActive] = useState<boolean>(true);
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     const day = date.getDate();
@@ -45,6 +44,7 @@ const WeatherPage: React.FC = () => {
   useEffect(() => {
     const fetchForecastData = async () => {
       try {
+        setIsActive(false)
         const locationResponse = await axios.get<LocationResponse>(
           `https://geocoding-api.open-meteo.com/v1/search?name=${city}`
         );
@@ -60,6 +60,7 @@ const WeatherPage: React.FC = () => {
         setMaxTempData(dailyData.temperature_2m_max);
         setMinTempData(dailyData.temperature_2m_min);
         setWeatherCodeData(dailyData.weathercode);
+        setIsActive(true);
       } catch (error) {
         console.error("Error fetching forecast data:", error);
       }
@@ -71,10 +72,11 @@ const WeatherPage: React.FC = () => {
   return (
     <Container>
       <Row>
-        <Col>
-          <Link to="/">Назад</Link>
-          <h1>{city}</h1>
-          {timeData.length > 0 ? (
+        {isActive ? (
+          <Col>
+            <Link to="/">Назад</Link>
+            <h1>{city}</h1>
+
             <Table striped bordered hover>
               <tbody>
                 <tr>
@@ -103,8 +105,24 @@ const WeatherPage: React.FC = () => {
                 </tr>
               </tbody>
             </Table>
-          ) : <Spinner/>}
-        </Col>
+          </Col>
+        ) : (
+          <div
+            style={{
+              position: "fixed",
+              top: 0,
+              bottom: 0,
+              left: 0,
+              right: 0,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              height: "100%",
+            }}
+          >
+            <Spinner />
+          </div>
+        )}
       </Row>
     </Container>
   );
