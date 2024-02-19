@@ -9,11 +9,13 @@ interface LocationResponse {
 }
 
 interface ForecastResponse {
-  daily: any;
-  time: string;
-  temperature_2m_max: number;
-  temperature_2m_min: number;
-  weathercode: number;
+  daily: {
+    time: string[];
+  temperature_2m_max: number[];
+  temperature_2m_min: number[];
+  weathercode: number[];
+  };
+  
 }
 
 interface MatchParams {
@@ -51,12 +53,12 @@ const WeatherPage: React.FC = () => {
           `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=GMT`
         );
 
-        const dailyData = forecastResponse.data.daily;
+        const {time, temperature_2m_max, temperature_2m_min, weathercode} = forecastResponse.data.daily;
 
-        setTimeData(dailyData.time);
-        setMaxTempData(dailyData.temperature_2m_max);
-        setMinTempData(dailyData.temperature_2m_min);
-        setWeatherCodeData(dailyData.weathercode);
+        setTimeData(time);
+        setMaxTempData(temperature_2m_max);
+        setMinTempData(temperature_2m_min);
+        setWeatherCodeData(weathercode);
         setIsActive(true);
       } catch (error) {
         console.error("Error fetching forecast data:", error);
