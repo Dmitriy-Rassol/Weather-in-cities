@@ -9,14 +9,11 @@ interface LocationResponse {
 }
 
 interface ForecastResponse {
-  daily: [
-    {
-      time: string;
-      temperature_2m_max: number;
-      temperature_2m_min: number;
-      weathercode: number;
-    }
-  ];
+  daily: any;
+  time: string;
+  temperature_2m_max: number;
+  temperature_2m_min: number;
+  weathercode: number;
 }
 
 interface MatchParams {
@@ -44,7 +41,7 @@ const WeatherPage: React.FC = () => {
   useEffect(() => {
     const fetchForecastData = async () => {
       try {
-        setIsActive(false)
+        setIsActive(false);
         const locationResponse = await axios.get<LocationResponse>(
           `https://geocoding-api.open-meteo.com/v1/search?name=${city}`
         );

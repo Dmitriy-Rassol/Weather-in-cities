@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 interface City {
-  id: number;
-  name: string;
-  admin1: string;
+    id: number;
+    name: string;
+    admin1: string;
 }
 
 const AutocompleteInput: React.FC = () => {
@@ -19,12 +19,12 @@ const AutocompleteInput: React.FC = () => {
   const handleInputChange = async (event: ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
     setLoading(true);
-    const response = await fetch(
+    const response = await axios.get(
       `https://geocoding-api.open-meteo.com/v1/search?name=${event.target.value}`
     );
-    const data = (await response.json()) as City[];
-    const result = data.results;
-    setCities(result);
+    const data = response.data;
+    
+    setCities(data.results);
     setLoading(false);
   };
 
@@ -58,7 +58,7 @@ const AutocompleteInput: React.FC = () => {
       <div style={{ position: "absolute", zIndex: 10 }}>
         <ListGroup>
           {loading ? (
-            <div style={{ position: "absolute", zIndex: 10, top: 0}}>
+            <div style={{ position: "absolute", zIndex: 10, top: 0 }}>
               <Spinner />
             </div>
           ) : (
