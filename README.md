@@ -30,10 +30,8 @@ export default {
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
 
 
-![image](https://github.com/Dmitriy-Rassol/Weather-in-cities/assets/52157280/3001c904-4bd1-45ba-9a69-982f48056635)
-![image](https://github.com/Dmitriy-Rassol/Weather-in-cities/assets/52157280/cacca2ed-93bf-4c45-ae4b-5fb958bc6364)
-![image](https://github.com/Dmitriy-Rassol/Weather-in-cities/assets/52157280/41c8e710-d136-4e93-9329-0af1d044d5da)
 
+![screencapture-localhost-5173-weather-Moscow-2024-03-14-03_45_58](https://github.com/Dmitriy-Rassol/Weather-in-cities/assets/52157280/ab7b87d7-c77e-4640-9973-9509dd4accc9)
 
 
 
