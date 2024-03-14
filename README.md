@@ -32,7 +32,8 @@ export default {
 
 ![image](https://github.com/Dmitriy-Rassol/Weather-in-cities/assets/52157280/3001c904-4bd1-45ba-9a69-982f48056635)
 ![image](https://github.com/Dmitriy-Rassol/Weather-in-cities/assets/52157280/cacca2ed-93bf-4c45-ae4b-5fb958bc6364)
-![image](https://github.com/Dmitriy-Rassol/Weather-in-cities/assets/52157280/2ce545f4-ba1b-49f7-a2be-81e10567d07b)
+![image](https://github.com/Dmitriy-Rassol/Weather-in-cities/assets/52157280/41c8e710-d136-4e93-9329-0af1d044d5da)
+
 
 
 
