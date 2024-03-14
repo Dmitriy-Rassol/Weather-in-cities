@@ -28,3 +28,11 @@ export default {
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+
+![image](https://github.com/Dmitriy-Rassol/Weather-in-cities/assets/52157280/3001c904-4bd1-45ba-9a69-982f48056635)
+![image](https://github.com/Dmitriy-Rassol/Weather-in-cities/assets/52157280/cacca2ed-93bf-4c45-ae4b-5fb958bc6364)
+![image](https://github.com/Dmitriy-Rassol/Weather-in-cities/assets/52157280/2ce545f4-ba1b-49f7-a2be-81e10567d07b)
+
+
+
