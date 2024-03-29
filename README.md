@@ -1,5 +1,5 @@
 # Прогноз погоды
-## Поиск по городам и отображение погоды вних
+## Прогноз погоды по городам
 
 ![screencapture-localhost-5173-2024-03-14-03_48_21](https://github.com/Dmitriy-Rassol/Weather-in-cities/assets/52157280/8ae27294-111c-4dd5-ba7a-4486608323cd)
 
